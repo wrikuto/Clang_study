@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
-#include"test.h"
+#include"SLL.h"
 
 // typedef struct Node
 // {
