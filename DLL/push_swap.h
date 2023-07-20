@@ -6,7 +6,7 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 17:16:38 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/07/20 18:52:19 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/07/20 19:39:00 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,20 @@ int		chk_args(char **argv);
 // list_utils
 t_node	*free_list(t_node **head);
 void	create_list(char **argv, t_node **head);
+
+// swap
+void	sa(t_node **head);
+void	sb(t_node **head);
+
+// rotate
+void	ra(t_node **head);
+void	rb(t_node **head);
+void	rr(t_node **stack_a, t_node **stack_b);
+
+// reverse
+void	rra(t_node **head);
+void	rrb(t_node **head);
+void	rrr(t_node **stack_a, t_node **stack_b);
 
 
 #endif
