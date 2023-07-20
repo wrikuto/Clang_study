@@ -1,61 +1,34 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/07/20 17:34:00 by wrikuto           #+#    #+#             */
+/*   Updated: 2023/07/20 18:53:41 by wrikuto          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-int is_contain_char(char *str)
+int	main(int argc, char **argv)
 {
-	int	i;
+	t_node	*stack_a;
 
-	i = 0;
-	while (str[i] != '\0')
+	stack_a = NULL;
+	if (argc == 1)
+		return (0);
+	if (chk_args(&argv[1]) == 0)
 	{
-		if (isalpha(str[i]))
-		return (1);
-		i++;
+		write(2, "Error\n", 6);
+		return (0);
 	}
+	write(1, "SUCCESS\n", 9);
 	return (0);
 }
 
-int main(int argc, char **argv)
-{
-	t_node *head = NULL;
-	int	i;
-
-	i = 1;
-	while (i <= (argc - 1))
-	{
-		if (is_contain_char(argv[i]))
-		{
-			printf("Invalid argument. try again.\n");
-			return (0);
-		}
-		i++;
-	}
-	//リストを作成
-	for (int i = 1; i < argc; i++)
-	{
-		int num = atoi(argv[i]);
-		create_node(&head, num);
-	}
-	// リストの内容を表示
-	printf("List: ");
-	printList(head);
-
-	char input[1000];
-	while (1)
-	{
-		printf("Enter 'list', 'del', 'exit' ");
-		fgets(input, sizeof(input), stdin);
-		input[strcspn(input, "\n")] = '\0'; // 改行文字を削除
-		if (strcmp(input, "list") == 0)
-			printList(head);
-		if (strcmp(input, "exit") == 0)
-			break;
-		if (strcmp(input, "del") == 0)
-		{
-				free_struct(&head);
-				printf("deleted\n");
-		}
-	}
-	free_struct(&head);
-	printf("Program finish and List deleted.\n");
-	return 0;
+__attribute__((destructor))
+static void destructor() {
+    system("leaks -q a.out");
 }

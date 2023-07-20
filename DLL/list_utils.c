@@ -1,18 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   create_DLL.c                                       :+:      :+:    :+:   */
+/*   list_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 16:42:44 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/07/20 16:45:48 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/07/20 18:54:57 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_node	*new_node(int res_num)
+t_node	*free_list(t_node **head)
+{
+	t_node	*current;
+	t_node	*temp;
+
+	if (*head == NULL)
+		return (*head);
+	current = *head;
+	while (current->next != *head)
+	{
+		temp = current->next;
+		free(current);
+		current = temp;
+	}
+	free(current);
+	*head = NULL;
+	return (*head);
+}
+
+static t_node	*new_node(int res_num)
 {
 	t_node	*data;
 
@@ -25,14 +44,14 @@ t_node	*new_node(int res_num)
 	return (data);
 }
 
-t_node	*add_node(t_node **head, int num)
+static t_node	*add_node(t_node **head, int num)
 {
 	t_node	*new;
 	t_node	*current;
 
-	new = newstruct(num);
+	new = new_node(num);
 	if (new == NULL)
-		return (NULL);
+		return (free_list(head));
 	if (*head == NULL)
 	{
 		*head = new;
@@ -50,4 +69,18 @@ t_node	*add_node(t_node **head, int num)
 		(*head)->prev = new;
 	}
 	return (*head);
+}
+
+void	create_list(char **argv, t_node **head)
+{
+	size_t	i;
+
+	i = 0;
+	while (argv[i] != NULL)
+	{
+		add_node(head, (int)ps_atol(argv[i]));
+		if (*head == NULL)
+			return ;
+		i++;
+	}
 }
