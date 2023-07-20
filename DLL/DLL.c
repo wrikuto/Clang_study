@@ -41,54 +41,42 @@
 // 	return (*head);
 // }
 
-void printList(t_node *head)
-{
-    t_node *current = head;
-    if (head == NULL)
-    {
-        printf("List is empty.\n");
-        return;
-    }
-    do
-    {
-        printf("%d ", current->num);
-        current = current->next;
-    } while (current != head);
+// void printList(t_node *head)
+// {
+//     t_node *current = head;
+//     if (head == NULL)
+//     {
+//         printf("List is empty.\n");
+//         return;
+//     }
+//     do
+//     {
+//         printf("%d ", current->num);
+//         current = current->next;
+//     } while (current != head);
 
-    printf("\n");
-}
+//     printf("\n");
+// }
 
-void free_struct(t_node **head)
-{
-	t_node	*current;
-	t_node	*temp;
+// void free_struct(t_node **head)
+// {
+// 	t_node	*current;
+// 	t_node	*temp;
 
-	if (*head == NULL)
-		return ;
-	current = *head;
-	while (current->next != *head)
-	{
-		temp = current->next;
-		free(current);
-		current = temp;
-	}
-	free(current);
-	*head = NULL;
-}
+// 	if (*head == NULL)
+// 		return ;
+// 	current = *head;
+// 	while (current->next != *head)
+// 	{
+// 		temp = current->next;
+// 		free(current);
+// 		current = temp;
+// 	}
+// 	free(current);
+// 	*head = NULL;
+// }
 
-int is_contain_char(char *str)
-{
-	int	i;
 
-	i = 0;
-	while (str[i] != '\0')
-	{
-		if (isalpha(str[i]))
-		return (1);
-		i++;
-	}
-	return (0);
-}
 
 // __attribute__((destructor))
 // static void destructor() {

@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   create_DLL.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/07/20 16:42:44 by wrikuto           #+#    #+#             */
+/*   Updated: 2023/07/20 16:45:48 by wrikuto          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-t_node	*newstruct(int res_num)
+t_node	*new_node(int res_num)
 {
 	t_node	*data;
 
@@ -10,20 +22,20 @@ t_node	*newstruct(int res_num)
 	data -> num = res_num;
 	data -> next = NULL;
 	data -> prev = NULL;
-	return(data);
+	return (data);
 }
 
-t_node	*create_node(t_node **head, int num)
+t_node	*add_node(t_node **head, int num)
 {
-	t_node	*newNode;
+	t_node	*new;
 	t_node	*current;
 
-	newNode = newstruct(num);
-	if (newNode == NULL)
+	new = newstruct(num);
+	if (new == NULL)
 		return (NULL);
 	if (*head == NULL)
 	{
-		*head = newNode;
+		*head = new;
 		(*head)->next = *head;
 		(*head)->prev = *head;
 	}
@@ -32,11 +44,10 @@ t_node	*create_node(t_node **head, int num)
 		current = *head;
 		while (current->next != *head)
 			current = current->next;
-
-		current->next = newNode;
-		newNode->next = *head;
-		newNode->prev = current;
-		(*head)->prev = newNode;
+		current->next = new;
+		new->next = *head;
+		new->prev = current;
+		(*head)->prev = new;
 	}
 	return (*head);
 }
