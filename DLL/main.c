@@ -6,7 +6,7 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 17:34:00 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/07/20 19:07:54 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/07/20 23:16:45 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,18 @@ int	main(int argc, char **argv)
 	if (stack_a == NULL)
 		return (0);
 	
+	printList(stack_a);
+	printList(stack_b);
+	printf("\n");
+	
+
+	push(&stack_a, &stack_b);
+
+
+	printList(stack_a);
+	printList(stack_b);
+	free_list(&stack_a);
+	free_list(&stack_b);
 	return (0);
 }
 

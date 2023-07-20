@@ -6,11 +6,11 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 19:10:57 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/07/20 19:35:27 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/07/20 22:49:16 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <push_swap.h>
+#include "push_swap.h"
 
 static	void	swap(t_node **head)
 {
