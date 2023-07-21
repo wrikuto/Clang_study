@@ -6,7 +6,7 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 17:16:38 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/07/21 16:08:24 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/07/21 17:48:15 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void	create_list(char **argv, t_node **head);
 // swap
 void	sa(t_node **head);
 void	sb(t_node **head);
+void	ss(t_node **list_a, t_node **list_b);
 
 // rotate
 void	ra(t_node **head);

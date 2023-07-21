@@ -6,7 +6,7 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 17:34:00 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/07/21 17:13:55 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/07/21 17:56:38 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ int	main(int argc, char **argv)
 		return (0);
 	}
 	create_list(&argv[1], &stack_a);
+	create_list(&argv[1], &stack_b);
 
 	if (stack_a == NULL)
 		return (0);
@@ -53,23 +54,14 @@ int	main(int argc, char **argv)
 	printList(stack_b);
 	printf("\n");
 
-	pb(&stack_a, &stack_b);
+	for (int i = 0; i <= 10; i++)
+	{
+		rr(&stack_a, &stack_b);
 
 
-	printList(stack_a);
-	printList(stack_b);
-
-	pb(&stack_a, &stack_b);
-
-	printList(stack_a);
-	printList(stack_b);
-
-	pb(&stack_a, &stack_b);
-
-	printList(stack_a);
-	printList(stack_b);
-
-	// printf("chk_b 2nd: %d\n", stack_b->next->num);
+		printList(stack_a);
+		printList(stack_b);
+	}
 
 	free_list(&stack_a);
 	free_list(&stack_b);
