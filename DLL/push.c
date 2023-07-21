@@ -6,21 +6,23 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 19:39:05 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/07/20 23:44:05 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/07/21 17:14:17 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	src_join(t_node **src, t_node *first, t_node *last)
+void	src_join(t_node **src, t_node *next, t_node *last)
 {
-	if (first == first->next)
+	if (*src == next)
+	{
 		*src = NULL;
+	}
 	else
 	{
-		*src = first;
-		first->prev = last;
-		last->next = first;
+		*src = next;
+		next->prev = last;
+		last->next = next;
 	}
 }
 
@@ -48,7 +50,7 @@ void	push(t_node **src, t_node **dest)
 
 	(*src)->next = *dest;
 	(*src)->prev = dest_last;
-	dest_next->prev = *src;
+	(*dest)->prev = *src;
 	dest_last->next = *src;
 
 	*dest = *src;
@@ -66,3 +68,6 @@ void	pb(t_node **stack_a, t_node **stack_b)
 	push(stack_a, stack_b);
 	write(1, "pa\n", 3);
 }
+
+
+// 	if (first == first->next)
