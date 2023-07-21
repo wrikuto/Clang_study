@@ -6,7 +6,7 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 19:39:05 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/07/21 17:14:17 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/07/21 17:39:36 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void	pa(t_node **stack_a, t_node **stack_b)
 void	pb(t_node **stack_a, t_node **stack_b)
 {
 	push(stack_a, stack_b);
-	write(1, "pa\n", 3);
+	write(1, "pb\n", 3);
 }
 
 
