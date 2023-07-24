@@ -7,26 +7,28 @@ SRCS = \
 		reverse_rotate.c \
 		rotate.c \
 		swap.c \
+		insert_sort.c \
+		sort_three_elements.c
 
-OBJS        =   $(SRCS:.c=.o)
-CC = cc
-CFLAGS = -Wall -Wextra -Werror
+OBJS	= $(SRCS:.c=.o)
+CC		= cc
+CFLAGS 	= -Wall -Wextra -Werror
 
 ##################################################################
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-        ar rcs $(NAME) $(OBJS)
+		ar rcs $(NAME) $(OBJS)
 
 $(OBJS): %.o: %.c
-        $(CC) $(CFLAGS) -c $< -o $@
+		$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-        $(RM) $(OBJS)
+		$(RM) $(OBJS)
 
 fclean: clean
-        $(RM) $(NAME)
+		$(RM) $(NAME)
 
 re: fclean all
 

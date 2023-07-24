@@ -6,7 +6,7 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 17:06:44 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/07/24 15:39:11 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/07/24 19:34:08 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,11 +91,7 @@ static int	chk_dup(char **argv)
 		while (argv[j] != NULL)
 		{
 			if (ps_atol(argv[i]) == ps_atol(argv[j]))
-			{
-				printf("index: i.. %zu, j.. %zu\n", i, j);
-				printf("num  : i.. %s, j.. %s\n", argv[i], argv[j]);
 				return (0);
-			}
 			j++;
 		}
 		i++;

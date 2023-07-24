@@ -1,0 +1,113 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort_five_elements.c                               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/07/24 20:27:56 by wrikuto           #+#    #+#             */
+/*   Updated: 2023/07/24 22:21:10 by wrikuto          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "push_swap.h"
+
+static t_node	*rtn_first(t_node	*stack_a)
+{
+	int		min;
+	t_node	*first_pointer;
+	t_node	*current;
+
+	min = stack_a->num;
+	first_pointer = stack_a;
+	current = stack_a->next;
+	while (current != stack_a)
+	{
+		if ((current->num) < min)
+		{
+			min = current->num;
+			first_pointer = current;
+		}
+		current = current->next;
+	}
+	return (first_pointer);
+}
+
+
+
+static t_node	*rtn_second(t_node	*stack_a, t_node *first_pointer)
+{
+	int		second_min;
+	t_node	*second_pointer;
+	t_node	*current;
+
+	second_pointer = stack_a;
+	second_min = INT_MAX;
+	current = stack_a->next;
+	while (current != stack_a)
+	{
+		if ((current->num) < second_min && current != first_pointer)
+		{
+			second_min = current->num;
+			second_pointer = current;
+		}
+		current = current->next;
+	}
+	if ((current->num) < second_min && current != first_pointer)
+		second_pointer = current;
+	return (second_pointer);
+}
+
+int	count_list(t_node **stack_a)
+{
+	int		i;
+	t_node	*current;
+
+	if (*stack_a == NULL)
+		return (0);
+	i = 1;
+	current = (*stack_a)->next;
+	while (current != *stack_a)
+	{
+		current = current->next;
+		i++;
+	}
+	return (i);
+}
+
+void	second_pb(t_node **stack_a, t_node **stack_b, t_node *second_min)
+{
+	while (second_min != *stack_a)
+		ra(stack_a);
+	pb(stack_a, stack_b);
+}
+
+
+void	sort_five_elements(t_node **stack_a, t_node **stack_b)
+{
+	t_node	*first_min;
+	t_node	*second_min;
+	int		count;
+
+	first_min = rtn_first(*stack_a);
+	second_min = rtn_second(stack_a, first_min);
+	count = count_list(stack_a);
+	if ((first_min - *stack_a) <= 3)
+	{
+		while (first_min != *stack_a)
+			ra(stack_a);
+		pb(stack_a, stack_b);
+	}
+	else
+	{
+		while (first_min != *stack_a)
+			rra(stack_a);
+		pb(stack_a, stack_b);
+	}
+	if (count == 5)
+		second_pb(stack_a, stack_b, second_min);
+	sort_three_elements(stack_a);
+	pb(stack_a, stack_b);
+	if (count == 5)
+		pb(stack_a, stack_b);
+}

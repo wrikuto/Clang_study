@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort.c                                             :+:      :+:    :+:   */
+/*   insert_sort.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 21:44:39 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/07/24 15:21:21 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/07/24 20:52:32 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	get_min(t_node *stack)
 	t_node	*current;
 
 	min = INT_MAX;
-	if (stack->num < min)
+	if (stack->num <= min)
 		min = stack->num;
 	current = stack->next;
 	while (current != NULL && current != stack)

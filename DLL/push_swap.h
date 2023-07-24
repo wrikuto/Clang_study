@@ -6,7 +6,7 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 17:16:38 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/07/24 12:00:13 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/07/24 20:16:29 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,6 @@ void	pb(t_node **stack_a, t_node **stack_b);
 // test sort
 
 void	sort_stack(t_node **stack_a, t_node **stack_b);
+void	sort_three_elements(t_node **stack_a);
 
 #endif
