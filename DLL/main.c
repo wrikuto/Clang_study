@@ -6,7 +6,7 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 17:34:00 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/07/21 20:17:35 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/07/24 11:59:25 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ void printList(t_node *head)
     } while (current != head);
 
     printf("\n");
+
 }
 
 int	main(int argc, char **argv)
@@ -50,17 +51,10 @@ int	main(int argc, char **argv)
 		return (0);
 
 	printList(stack_a);
-	printList(stack_b);
+	// printList(stack_b);
 	printf("\n");
-
-	for (int i = 0; i <= 6; i++)
-	{
-		pb(&stack_a, &stack_b);
-
-
-		printList(stack_a);
-		printList(stack_b);
-	}
+	sort_stack(&stack_a, &stack_b);
+	printList(stack_a);
 
 	free_list(&stack_a);
 	free_list(&stack_b);

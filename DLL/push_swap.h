@@ -6,7 +6,7 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 17:16:38 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/07/21 17:48:15 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/07/24 12:00:13 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef struct s_node
 	struct s_node	*next;
 	struct s_node	*prev;
 }	t_node;
+
 
 long	ps_atol(const char *str);
 int		chk_args(char **argv);
@@ -49,10 +50,13 @@ void	rra(t_node **head);
 void	rrb(t_node **head);
 void	rrr(t_node **stack_a, t_node **stack_b);
 
-
+// push
 void	push(t_node **src, t_node **dest);
 void	pa(t_node **stack_a, t_node **stack_b);
 void	pb(t_node **stack_a, t_node **stack_b);
 
+// test sort
+
+void	sort_stack(t_node **stack_a, t_node **stack_b);
 
 #endif
