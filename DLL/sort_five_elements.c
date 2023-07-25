@@ -6,7 +6,7 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 20:27:56 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/07/25 15:22:43 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/07/25 15:54:22 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,6 @@ static t_node	*rtn_first(t_node	*stack_a)
 	}
 	return (first_pointer);
 }
-
-
 
 static t_node	*rtn_second(t_node	*stack_a, t_node *first_pointer)
 {
@@ -82,13 +80,11 @@ void	second_pb(t_node **stack_a, t_node **stack_b, t_node *second_min)
 	pb(stack_a, stack_b);
 }
 
-
 void	sort_five_elements(t_node **stack_a, t_node **stack_b, int count)
 {
 	t_node	*first_min;
 	t_node	*second_min;
 
-	printf("	five\n");
 	if (is_sorted(*stack_a))
 		return ;
 	first_min = rtn_first(*stack_a);

@@ -6,7 +6,7 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 19:39:05 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/07/25 15:31:47 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/07/25 15:58:18 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ void	push(t_node **src, t_node **dest)
 {
 	t_node	*src_next;
 	t_node	*src_last;
-	// t_node	*dest_next;
 	t_node	*dest_last;
 
 	if (*src == NULL)
@@ -45,14 +44,11 @@ void	push(t_node **src, t_node **dest)
 		src_join(src, src_next, src_last);
 		return ;
 	}
-	// dest_next = (*dest)->next;
 	dest_last = (*dest)->prev;
-
 	(*src)->next = *dest;
 	(*src)->prev = dest_last;
 	(*dest)->prev = *src;
 	dest_last->next = *src;
-
 	*dest = *src;
 	src_join(src, src_next, src_last);
 }
@@ -68,6 +64,3 @@ void	pb(t_node **stack_a, t_node **stack_b)
 	push(stack_a, stack_b);
 	write(1, "pb\n", 3);
 }
-
-
-// 	if (first == first->next)

@@ -6,7 +6,7 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 16:42:44 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/07/20 19:06:07 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/07/25 20:07:37 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,11 +71,27 @@ static t_node	*add_node(t_node **head, int num)
 	return (*head);
 }
 
+#include <stdio.h>
+
 void	create_list(char **argv, t_node **head)
 {
 	size_t	i;
+	char	*pos;
 
 	i = 0;
+	pos = *argv;
+	if (argv[0] && argv[1] == NULL)
+	{
+		while (*pos != '\0')
+		{
+			while (*pos == ' ')
+				pos++;
+			add_node(head, (int)string_atol(&pos));
+			if (*head == NULL)
+				return ;
+		}
+		return ;
+	}
 	while (argv[i] != NULL)
 	{
 		add_node(head, (int)ps_atol(argv[i]));

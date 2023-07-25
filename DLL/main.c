@@ -6,7 +6,7 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 17:34:00 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/07/25 15:43:06 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/07/25 21:40:27 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,38 +40,18 @@ int	main(int argc, char **argv)
 	stack_b = NULL;
 	if (argc == 1)
 		return (0);
-	if (chk_args(&argv[1]) == 0)
-	{
-		write(2, "Error\n", 6);
-		return (0);
-	}
+	if (chk_num_string(argv[1]) == 0 && argv[2] == NULL)
+		return (wrong_arg(argc));
+	if (chk_args(&argv[1]) == 0 && argv[2] != NULL)
+		return (wrong_arg(argc));
 	create_list(&argv[1], &stack_a);
 
-	if (stack_a == NULL)
-		return (0);
-
-	printList(stack_a);
-	// printList(stack_b);
-	printf("\n");
-
-	if (argc == 3)
-		ra(&stack_a);
-	else if (argc == 4)
-		sort_three_elements(&stack_a);
-	else if (argc == 5 || argc == 6)
-		sort_five_elements(&stack_a, &stack_b, argc - 1);
-	else
-		sort_insert(&stack_a, &stack_b);
-
 	printList(stack_a);
 
+	select_sort(&stack_a, &stack_b);
+	
+	printList(stack_a);
 	free_list(&stack_a);
 	free_list(&stack_b);
-
 	return (0);
-}
-
-__attribute__((destructor))
-static void destructor() {
-    system("leaks -q push_swap");
 }

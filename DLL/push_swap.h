@@ -6,7 +6,7 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 17:16:38 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/07/25 15:22:46 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/07/25 21:22:26 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,17 @@ typedef struct s_node
 	struct s_node	*prev;
 }	t_node;
 
+void	select_sort(t_node **stack_a, t_node **stack_b);
 
-long	ps_atol(const char *str);
+// chk
 int		chk_args(char **argv);
+// chk_utils
+int		chk_num_string(char *str);
+long	string_atol(char **str);
+long	ps_atol(const char *str);
+int		ft_isdigit(int c);
+long	ps_atol(const char *str);
+int		is_num(char *str);
 
 // list_utils
 t_node	*free_list(t_node **head);
@@ -56,12 +64,12 @@ void	pa(t_node **stack_a, t_node **stack_b);
 void	pb(t_node **stack_a, t_node **stack_b);
 
 // sort
-// void	sort_stack(t_node **stack_a, t_node **stack_b);
 void	sort_three_elements(t_node **stack_a);
 void	sort_five_elements(t_node **stack_a, t_node **stack_b, int count);
 void	sort_insert(t_node **stack_a, t_node **stack_b);
-
-int	count_list(t_node **stack_a);
-int	is_sorted(t_node *stack);
+// sort_utils
+int		count_list(t_node **stack_a);
+int		is_sorted(t_node *stack);
+int		wrong_arg(int argc);
 
 #endif
