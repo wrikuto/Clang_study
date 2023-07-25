@@ -6,7 +6,7 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 17:34:00 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/07/25 22:09:37 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/07/25 22:41:25 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,4 @@ int	main(int argc, char **argv)
 	free_list(&stack_a);
 	free_list(&stack_b);
 	return (0);
-}
-
-__attribute__((destructor))
-static void destructor() {
-    system("leaks -q a.out");
 }

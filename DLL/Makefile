@@ -2,6 +2,7 @@ NAME = push_swap.a
 SRCS = \
 		chk_args.c \
 		chk_utils.c \
+		chk_single_arg.c \
 		list_utils.c \
 		push.c \
 		reverse_rotate.c \
@@ -10,7 +11,7 @@ SRCS = \
 		sort_utils.c \
 		sort_insert.c \
 		sort_three_elements.c \
-		sort_five_elements.c
+		sort_five_or_four.c
 
 OBJS	= $(SRCS:.c=.o)
 CC		= cc

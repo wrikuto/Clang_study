@@ -6,7 +6,7 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 16:56:54 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/07/25 21:40:50 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/07/25 22:34:53 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,9 @@
 
 long	string_atol(char **str)
 {
-	int		i;
 	long	sign;
 	long	num;
 
-	i = 0;
 	num = 0;
 	sign = 1 + ((**str == '-') * -2);
 	if (**str == '-' || **str == '+')
@@ -55,7 +53,7 @@ static int	chk_dub(int *num, int count)
 	return (1);
 }
 
-static int create_chk_array(char **str, int count)
+static int	create_chk_array(char **str, int count)
 {
 	int	*num;
 	int	i;
@@ -105,4 +103,4 @@ int	chk_num_string(char *str)
 	if (create_chk_array(&new_str, count) == 0)
 		return (0);
 	return (1);
-} 
+}
