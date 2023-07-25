@@ -6,7 +6,7 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 20:27:56 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/07/24 22:21:10 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/07/25 12:46:43 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,16 +58,16 @@ static t_node	*rtn_second(t_node	*stack_a, t_node *first_pointer)
 	return (second_pointer);
 }
 
-int	count_list(t_node **stack_a)
+int	dif_from_head(t_node *stack_a, t_node *first_min)
 {
 	int		i;
 	t_node	*current;
 
-	if (*stack_a == NULL)
+	if (stack_a == NULL || stack_a == first_min)
 		return (0);
 	i = 1;
-	current = (*stack_a)->next;
-	while (current != *stack_a)
+	current = (stack_a)->next;
+	while (current != stack_a && current != first_min)
 	{
 		current = current->next;
 		i++;
@@ -83,16 +83,14 @@ void	second_pb(t_node **stack_a, t_node **stack_b, t_node *second_min)
 }
 
 
-void	sort_five_elements(t_node **stack_a, t_node **stack_b)
+void	sort_five_elements(t_node **stack_a, t_node **stack_b, int count)
 {
 	t_node	*first_min;
 	t_node	*second_min;
-	int		count;
 
 	first_min = rtn_first(*stack_a);
-	second_min = rtn_second(stack_a, first_min);
-	count = count_list(stack_a);
-	if ((first_min - *stack_a) <= 3)
+	second_min = rtn_second(*stack_a, first_min);
+	if (dif_from_head(*stack_a, first_min) <= 2)
 	{
 		while (first_min != *stack_a)
 			ra(stack_a);
@@ -107,7 +105,7 @@ void	sort_five_elements(t_node **stack_a, t_node **stack_b)
 	if (count == 5)
 		second_pb(stack_a, stack_b, second_min);
 	sort_three_elements(stack_a);
-	pb(stack_a, stack_b);
+	pa(stack_a, stack_b);
 	if (count == 5)
-		pb(stack_a, stack_b);
+		pa(stack_a, stack_b);
 }

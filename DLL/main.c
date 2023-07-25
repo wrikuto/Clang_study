@@ -6,7 +6,7 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 17:34:00 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/07/24 20:30:38 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/07/25 12:49:48 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,8 @@ int	main(int argc, char **argv)
 		ra(&stack_a);
 	else if (argc == 4)
 		sort_three_elements(&stack_a);
+	else if (argc == 5 || argc == 6)
+		sort_five_elements(&stack_a, &stack_b, argc - 1);
 	else
 		sort_stack(&stack_a, &stack_b);
 
