@@ -6,7 +6,7 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 17:34:00 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/07/25 12:49:48 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/07/25 15:43:06 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,25 +30,6 @@ void printList(t_node *head)
     printf("\n");
 
 }
-
-// void printList(t_node *head)
-// {
-//     t_node *current = head;
-//     if (head == NULL)
-//     {
-//         printf("List is empty.\n");
-//         return;
-//     }
-// // hode
-//     do
-//     {
-//         printf("%d ", current->num);
-//         current = current->prev;
-//     } while (current != head);
-
-//     printf("\n");
-
-// }
 
 int	main(int argc, char **argv)
 {
@@ -80,7 +61,7 @@ int	main(int argc, char **argv)
 	else if (argc == 5 || argc == 6)
 		sort_five_elements(&stack_a, &stack_b, argc - 1);
 	else
-		sort_stack(&stack_a, &stack_b);
+		sort_insert(&stack_a, &stack_b);
 
 	printList(stack_a);
 
@@ -92,5 +73,5 @@ int	main(int argc, char **argv)
 
 __attribute__((destructor))
 static void destructor() {
-    system("leaks -q a.out");
+    system("leaks -q push_swap");
 }

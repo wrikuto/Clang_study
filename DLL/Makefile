@@ -7,8 +7,10 @@ SRCS = \
 		reverse_rotate.c \
 		rotate.c \
 		swap.c \
-		insert_sort.c \
-		sort_three_elements.c
+		sort_utils.c \
+		sort_insert.c \
+		sort_three_elements.c \
+		sort_five_elements.c
 
 OBJS	= $(SRCS:.c=.o)
 CC		= cc

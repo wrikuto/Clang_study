@@ -6,25 +6,22 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 23:07:04 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/07/24 23:07:15 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/07/25 15:19:22 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	count_list(t_node **stack_a)
+int	is_sorted(t_node *stack)
 {
-	int		i;
 	t_node	*current;
 
-	if (*stack_a == NULL)
-		return (0);
-	i = 1;
-	current = (*stack_a)->next;
-	while (current != *stack_a)
+	current = stack;
+	while (current != NULL && current->next != stack)
 	{
+		if ((current->num) > (current->next->num))
+			return (0);
 		current = current->next;
-		i++;
 	}
-	return (i);
+	return (1);
 }

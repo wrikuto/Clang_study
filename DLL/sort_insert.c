@@ -1,48 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   insert_sort.c                                      :+:      :+:    :+:   */
+/*   sort_insert.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 21:44:39 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/07/24 20:52:32 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/07/25 15:27:06 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 #include <stdio.h>
-
-int	is_sorted(t_node *stack)
-{
-	t_node	*current;
-
-	current = stack;
-	while (current != NULL && current->next != stack)
-	{
-		if ((current->num) > (current->next->num))
-			return (0);
-		current = current->next;
-	}
-	return (1);
-}
-
-int	stack_len(t_node *stack)
-{
-	int		len;
-	t_node	*current;
-
-	len = 0;
-	current = stack;
-	while (current != NULL && current->next != stack)
-	{
-		len++;
-		current = current->next;
-	}
-	return (len);
-}
-
 
 int	get_min(t_node *stack)
 {
@@ -63,7 +33,7 @@ int	get_min(t_node *stack)
 	return (min);
 }
 
-void	sort_stack(t_node **stack_a, t_node **stack_b)
+void	sort_insert(t_node **stack_a, t_node **stack_b)
 {
 	int	min;
 
@@ -79,3 +49,18 @@ void	sort_stack(t_node **stack_a, t_node **stack_b)
 	while (*stack_b != NULL)
 		pa(stack_a, stack_b);
 }
+
+// int	stack_len(t_node *stack)
+// {
+// 	int		len;
+// 	t_node	*current;
+
+// 	len = 0;
+// 	current = stack;
+// 	while (current != NULL && current->next != stack)
+// 	{
+// 		len++;
+// 		current = current->next;
+// 	}
+// 	return (len);
+// }
