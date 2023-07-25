@@ -6,7 +6,7 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 20:27:56 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/07/25 12:46:43 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/07/25 12:51:39 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,7 @@ void	sort_five_elements(t_node **stack_a, t_node **stack_b, int count)
 	t_node	*first_min;
 	t_node	*second_min;
 
+	printf("	five\n");
 	first_min = rtn_first(*stack_a);
 	second_min = rtn_second(*stack_a, first_min);
 	if (dif_from_head(*stack_a, first_min) <= 2)

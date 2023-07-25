@@ -6,7 +6,7 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 19:42:43 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/07/24 20:35:34 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/07/25 12:51:03 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void	sort_three_elements(t_node **stack_a)
 	int	b;
 	int	c;
 
+	printf("	three\n");
 	a = (*stack_a)->num;
 	b = (*stack_a)->next->num;
 	c = (*stack_a)->next->next->num;
@@ -39,5 +40,5 @@ void	sort_three_elements(t_node **stack_a)
 		ra(stack_a);
 	else if (a < b && b > c && a > c)
 		rra(stack_a);
-	printf("	three\n");
+
 }
