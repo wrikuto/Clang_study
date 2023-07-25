@@ -6,7 +6,7 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 23:07:04 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/07/25 21:46:12 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/07/25 21:57:04 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,12 +56,14 @@ void	select_sort(t_node **stack_a, t_node **stack_b)
 	len = stack_len(*stack_a);
 	if (*stack_a == NULL)
 		return ;
-	if (len == 2)
+	if (is_sorted(*stack_a))
+		return ;
+	if (len == 2 && ((*stack_a)->num) > ((*stack_a)->next->num))
 		ra(stack_a);
 	else if (len == 3)
 		sort_three_elements(stack_a);
 	else if (len == 4 || len == 5)
-		sort_five_elements(stack_a, stack_b, len);
+		sort_five_or_four(stack_a, stack_b, len);
 	else
 		sort_insert(stack_a, stack_b);
 }

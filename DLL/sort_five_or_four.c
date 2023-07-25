@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_five_elements.c                               :+:      :+:    :+:   */
+/*   sort_five_or_four.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 20:27:56 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/07/25 15:54:22 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/07/25 21:59:33 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,13 +80,11 @@ void	second_pb(t_node **stack_a, t_node **stack_b, t_node *second_min)
 	pb(stack_a, stack_b);
 }
 
-void	sort_five_elements(t_node **stack_a, t_node **stack_b, int count)
+void	sort_five_or_four(t_node **stack_a, t_node **stack_b, int count)
 {
 	t_node	*first_min;
 	t_node	*second_min;
 
-	if (is_sorted(*stack_a))
-		return ;
 	first_min = rtn_first(*stack_a);
 	second_min = rtn_second(*stack_a, first_min);
 	if (dif_from_head(*stack_a, first_min) <= 2)

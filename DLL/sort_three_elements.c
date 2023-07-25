@@ -6,7 +6,7 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 19:42:43 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/07/25 15:50:39 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/07/25 21:59:16 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,7 @@ void	sort_three_elements(t_node **stack_a)
 	a = (*stack_a)->num;
 	b = (*stack_a)->next->num;
 	c = (*stack_a)->next->next->num;
-	if (a < b && b < c)
-		return ;
-	else if (a > b && b > c)
+	if (a > b && b > c)
 	{
 		sa(stack_a);
 		rra(stack_a);
