@@ -6,7 +6,7 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 19:39:05 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/07/25 15:58:18 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/07/26 22:23:00 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,4 +63,10 @@ void	pb(t_node **stack_a, t_node **stack_b)
 {
 	push(stack_a, stack_b);
 	write(1, "pb\n", 3);
+}
+
+void	push_all_a(t_node **stack_a, t_node **stack_b)
+{
+	rrb(stack_b);
+	pa(stack_a, stack_b);
 }

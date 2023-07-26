@@ -6,15 +6,28 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 23:07:04 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/07/25 22:32:58 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/07/26 22:23:14 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	stack_len(t_node *stack)
+void	rra_pb(t_node **stack_a, t_node **stack_b)
 {
-	int		len;
+	rra(stack_a);
+	pb(stack_a, stack_b);
+}
+
+void	rrb_pa_ra(t_node **stack_a, t_node **stack_b)
+{
+	rrb(stack_b);
+	pa(stack_a, stack_b);
+	ra(stack_a);
+}
+
+size_t	stack_len(t_node *stack)
+{
+	size_t	len;
 	t_node	*current;
 
 	len = 1;
@@ -25,14 +38,6 @@ static int	stack_len(t_node *stack)
 		current = current->next;
 	}
 	return (len);
-}
-
-int	wrong_arg(int argc)
-{
-	if (argc)
-		argc += 0;
-	write(2, "Error\n", 6);
-	return (0);
 }
 
 int	is_sorted(t_node *stack)
@@ -54,9 +59,7 @@ void	select_sort(t_node **stack_a, t_node **stack_b)
 	int	len;
 
 	len = stack_len(*stack_a);
-	if (*stack_a == NULL)
-		return ;
-	if (is_sorted(*stack_a))
+	if (*stack_a == NULL || is_sorted(*stack_a))
 		return ;
 	if (len == 2 && ((*stack_a)->num) > ((*stack_a)->next->num))
 		ra(stack_a);
