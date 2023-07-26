@@ -5,7 +5,8 @@
 struct Node
 {
     int data;
-    struct Node* next;
+    char c;
+    double n;
 };
 
 void changeHead(struct Node **head) {
@@ -13,10 +14,9 @@ void changeHead(struct Node **head) {
 }
 
 int main() {
-    struct Node *head = (struct Node *)malloc(sizeof(struct Node));
+    struct Node *head = malloc(sizeof(struct Node));
     head->data = 42;
 
-    changeHead(&head);
 
     if (head == NULL) {
         printf("headはNULLです\n");
