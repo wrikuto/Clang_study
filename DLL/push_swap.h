@@ -6,7 +6,7 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 17:16:38 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/07/26 22:41:04 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/07/26 22:48:57 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ void	rrr(t_node **stack_a, t_node **stack_b);
 void	push(t_node **src, t_node **dest);
 void	pa(t_node **stack_a, t_node **stack_b);
 void	pb(t_node **stack_a, t_node **stack_b);
+void	push_all_a(t_node **stack_a, t_node **stack_b);
 
 void	rra_pb(t_node **stack_a, t_node **stack_b);
 void	rrb_pa_ra(t_node **stack_a, t_node **stack_b);
