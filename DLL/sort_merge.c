@@ -6,7 +6,7 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 15:00:53 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/07/26 22:28:15 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/07/26 22:41:12 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	recursive(t_node **stack_a, t_node **stack_b, t_node *before_harf)
 	t_node	*head;
 
 	i = 0;
-	harf = *stack_a; 
+	harf = *stack_a;
 	head = *stack_a;
 	len = len_to_before_harf(*stack_a, before_harf);
 	while (i++ <= len)
@@ -86,35 +86,5 @@ void	recursive(t_node **stack_a, t_node **stack_b, t_node *before_harf)
 
 void	sort_merge(t_node **stack_a, t_node **stack_b)
 {
-	size_t	i;
-	size_t	len;
-	t_node	**harf;
-
-	i = 0;
-	len = stack_len(*harf);
 	recursive(stack_a, stack_b, *stack_a);
 }
-
-
-	// while ((*stack_a) != harf)
-	// {
-	// 	if (stack_b > stack_a || stack_b == NULL)
-	// 		pb(stack_a, stack_b);
-	// 	else
-	// 	{
-	// 		while (stack_b < stack_a)
-	// 			rb(stack_b);
-	// 		pb(stack_a, stack_b);
-	// 	}
-	// 	while (*stack_b != head)
-	// 	rrb;
-	// }
-
-
-// void	compare_and_push(t_node **stack_a, t_node **stack_b, t_node **harf)
-// {
-
-// 	while ((*stack_a)->next != *harf)
-// 		pb(stack_a, stack_b);
-	
-// }
