@@ -6,7 +6,7 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 15:00:53 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/07/26 23:49:18 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/07/26 23:50:13 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ void	recursive(t_node **stack_a, t_node **stack_b, t_node *before_harf)
 	t_node	*head;
 
 	i = 1;
-	harf = (*stack_a);
+	harf = (*stack_a) -> prev;
 	head = *stack_a;
 	len = len_to_before_harf(*stack_a, before_harf);
 	// return ;
