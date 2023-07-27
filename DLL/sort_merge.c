@@ -6,7 +6,7 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 15:00:53 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/07/26 23:50:13 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/07/27 13:16:39 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ int	len_to_before_harf(t_node *stack, t_node *before_harf)
 	}
 	if (stack == before_harf)
 		len--;
-	printf("len: %zu\n", len);
 	return (len);
 }
 
@@ -87,7 +86,7 @@ void	recursive(t_node **stack_a, t_node **stack_b, t_node *before_harf)
 	t_node	*head;
 
 	i = 1;
-	harf = (*stack_a) -> prev;
+	harf = (*stack_a);
 	head = *stack_a;
 	len = len_to_before_harf(*stack_a, before_harf);
 	// return ;
@@ -95,11 +94,13 @@ void	recursive(t_node **stack_a, t_node **stack_b, t_node *before_harf)
 	{
 		harf = harf->next;
 	}
-	printf("harf: %d\n", harf->num);
-	return ;
+	// return ;
 	if ((*stack_a) != harf)
+	{
+
 		recursive(stack_a, stack_b, harf);
-	if (harf != before_harf)
+	}
+	if ((*stack_a) != harf && harf != before_harf)
 	{
 		while (*stack_a != harf)
 			ra(stack_a);
@@ -109,6 +110,8 @@ void	recursive(t_node **stack_a, t_node **stack_b, t_node *before_harf)
 		return ;
 	while (*stack_a != head)
 		rra_pb(stack_a, stack_b);
+											printf("before_harf: %d\n", (before_harf)->num);
+											printf("harf:	%d\n\n", (harf)->num);
 	insert_merge(stack_a, stack_b, before_harf);
 }
 
