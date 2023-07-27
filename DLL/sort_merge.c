@@ -6,7 +6,7 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 15:00:53 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/07/27 13:16:39 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/07/27 14:06:08 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,24 @@
 
 #include<stdio.h>
 
-static void printList(t_node *head)
-{
-    t_node *current = head;
-    if (head == NULL)
-    {
-        printf("List is empty.\n");
-        return;
-    }
-// hode
-    do
-    {
-        printf("%d ", current->num);
-        current = current->next;
-    } while (current != head);
+// static void printList(t_node *head)
+// {
+//     t_node *current = head;
+//     if (head == NULL)
+//     {
+//         printf("List is empty.\n");
+//         return;
+//     }
+// // hode
+//     do
+//     {
+//         printf("%d ", current->num);
+//         current = current->next;
+//     } while (current != head);
 
-    printf("\n");
-}
+//     printf("\n");
+// }
+
 
 int	len_to_before_harf(t_node *stack, t_node *before_harf)
 {
@@ -53,6 +54,8 @@ int	len_to_before_harf(t_node *stack, t_node *before_harf)
 void	insert_merge(t_node **stack_a, t_node **stack_b, t_node *before_harf)
 {
 	t_node	*head;
+
+							printf("insert_harf:	%d\n\n", (before_harf)->num);
 
 	head = *stack_b;
 	while ((*stack_a) != before_harf)
