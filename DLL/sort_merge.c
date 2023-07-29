@@ -6,7 +6,7 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 15:00:53 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/07/27 13:16:39 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/07/30 02:35:23 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,15 +49,16 @@ int	len_to_before_harf(t_node *stack, t_node *before_harf)
 	return (len);
 }
 
-// 右半分をマージする。
+// マージする。
 void	insert_merge(t_node **stack_a, t_node **stack_b, t_node *before_harf)
 {
 	t_node	*head;
 
+			printf("\nenter %d\n\n", before_harf->num);
 	head = *stack_b;
 	while ((*stack_a) != before_harf)
 	{
-		if ((*stack_b)->num > (*stack_a)->num || (*stack_b)->next == head)
+		if ((*stack_b)->num > (*stack_a)->num)
 			pb(stack_a, stack_b);
 		else
 		{
@@ -65,17 +66,16 @@ void	insert_merge(t_node **stack_a, t_node **stack_b, t_node *before_harf)
 				rb(stack_b);
 			pb(stack_a, stack_b);
 		}
-		while (*stack_b != head || \
-		(stack_len(*stack_b) == 2 && ((*stack_b)->num > (*stack_b)->next->num)))
-			rb(stack_b);
+		// while (*stack_b != head || \
+		// (stack_len(*stack_b) == 2 && ((*stack_b)->num > (*stack_b)->next->num)))
+		// 	rb(stack_b);
 	}
-	if (is_sorted(*stack_b))
+	if (*stack_a == before_harf)
 	{
-		while (stack_b != NULL)
-			push_all_a(stack_a, stack_b);
+		pb(stack_a, stack_b);
+		if (stack_len(*stack_b) == 2 && (*stack_b)->num > (*stack_b)->next->num)
+			sb(stack_b);
 	}
-	while (stack_b != NULL)
-		rrb_pa_ra(stack_a, stack_b);
 }
 
 void	recursive(t_node **stack_a, t_node **stack_b, t_node *before_harf)
@@ -89,33 +89,32 @@ void	recursive(t_node **stack_a, t_node **stack_b, t_node *before_harf)
 	harf = (*stack_a);
 	head = *stack_a;
 	len = len_to_before_harf(*stack_a, before_harf);
-	// return ;
 	while (i++ <= len / 2)
-	{
 		harf = harf->next;
-	}
 	// return ;
-	if ((*stack_a) != harf)
+											printf("before_harf: %d\n", (before_harf)->num);
+											printf("harf:	%d\n\n", (harf)->num);
+	if ((*stack_a) != harf && (*stack_a)->next != before_harf)
 	{
-
 		recursive(stack_a, stack_b, harf);
+		insert_merge(stack_a, stack_b, harf);
 	}
 	if ((*stack_a) != harf && harf != before_harf)
 	{
-		while (*stack_a != harf)
-			ra(stack_a);
 		recursive(stack_a, stack_b, before_harf);
+		insert_merge(stack_a, stack_b, before_harf);
+		while (stack_b != NULL)
+			rrb_pa_ra(stack_a, stack_b);
 	}
 	if (is_sorted(*stack_a))
 		return ;
-	while (*stack_a != head)
-		rra_pb(stack_a, stack_b);
-											printf("before_harf: %d\n", (before_harf)->num);
-											printf("harf:	%d\n\n", (harf)->num);
-	insert_merge(stack_a, stack_b, before_harf);
+
+						printList(*stack_b);
 }
 
 void	sort_merge(t_node **stack_a, t_node **stack_b)
 {
 	recursive(stack_a, stack_b, (*stack_a));
 }
+
+
