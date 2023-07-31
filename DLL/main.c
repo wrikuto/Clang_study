@@ -6,7 +6,7 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 17:34:00 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/07/31 17:41:10 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/07/31 22:03:29 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,8 @@ int	main(int argc, char **argv)
 	sort_split_insert(&stack_a, &stack_b);
 
 	printList(stack_b);
+	printList(stack_a);
+
 	
 	free_list(&stack_a);
 	free_list(&stack_b);

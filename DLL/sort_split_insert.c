@@ -6,13 +6,13 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 15:46:29 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/07/31 17:40:54 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/07/31 22:46:12 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	ft_abs(int n)
+int	ft_abs(int n)
 {
 	if (n < 0)
 		return (-n);
@@ -63,25 +63,22 @@ int	get_center(t_node *stack, int mid)
 
 int	grouping(t_node **stack_a, t_node **stack_b)
 {
-	int		min_count;
-	int		max;
+	int		count;
 	int		mid;
 	size_t	len;
 
-	min_count = get_min(*stack_a);
-	max = get_max(*stack_a);
-	// mid = get_center(*stack_a, (min_count + ((max - min_count) / 2)));
+	// mid = get_center(*stack_a, (count + ((max - count) / 2)));
 	mid = get_center(*stack_a, ft_average(*stack_a));
 	len = stack_len(*stack_a);
-	min_count = 0;
+	count = 0;
 	printf("ave: %d\n", ft_average(*stack_a));
-	while ((size_t)min_count < len)
+	while ((size_t)count < len)
 	{
 		if ((*stack_a)->num <= mid)
 			pb(stack_a, stack_b);
 		else
 			ra(stack_a);
-		min_count++;
+		count++;
 	}
 	while (*stack_a != NULL)
 		pb(stack_a, stack_b);
@@ -103,7 +100,6 @@ static int	len_to_max(t_node *stack, int max)
 	return (count);
 }
 
-
 void	sort_split_insert(t_node **stack_a, t_node **stack_b)
 {
 	int	max;
@@ -111,12 +107,11 @@ void	sort_split_insert(t_node **stack_a, t_node **stack_b)
 	int	distance;
 
 	grouping(stack_a, stack_b);
-	return ;
 	max = 0;
 	len = 0;
 	if (*stack_b == NULL)
 		return ;
-	while (*stack_b != NULL)
+	while (*stack_b)
 	{
 		len = stack_len(*stack_b);
 		max = get_max(*stack_b);
@@ -124,12 +119,10 @@ void	sort_split_insert(t_node **stack_a, t_node **stack_b)
 		while ((*stack_b)->num != max)
 		{
 			if (distance < len / 2)
-				ra(stack_b);
+				rb(stack_b);
 			else if (len / 2 <= distance)
-				rra(stack_b);
+				rrb(stack_b);
 		}
-		pb(stack_a, stack_b);
-	}
-	while (*stack_b != NULL)
 		pa(stack_a, stack_b);
+	}
 }

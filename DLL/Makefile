@@ -13,7 +13,6 @@ SRCS = \
 		sort_three_elements.c \
 		sort_five_or_four.c \
 		sort_split_insert.c \
-		sort_insert.c
 
 OBJS	= $(SRCS:.c=.o)
 CC		= cc
