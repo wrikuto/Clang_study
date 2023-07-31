@@ -6,7 +6,7 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 17:16:38 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/07/31 02:18:20 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/07/31 17:05:08 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,9 +66,14 @@ void	pb(t_node **stack_a, t_node **stack_b);
 // sort
 void	sort_three_elements(t_node **stack_a);
 void	sort_five_or_four(t_node **stack_a, t_node **stack_b, int count);
-void	sort_insert(t_node **stack_a, t_node **stack_b);
+// void	sort_insert(t_node **stack_a, t_node **stack_b);
 
-void	sort_merge(t_node **stack_a, t_node **stack_b);
+void	sort_split_insert(t_node **stack_a, t_node **stack_b);
+
+int		get_max(t_node *stack);
+int		get_min(t_node *stack);
+
+
 
 // sort_utils
 int		count_list(t_node **stack_a);
