@@ -6,7 +6,7 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 15:00:53 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/07/30 02:38:42 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/07/30 21:42:15 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,9 +66,6 @@ void	insert_merge(t_node **stack_a, t_node **stack_b, t_node *before_harf)
 				rb(stack_b);
 			pb(stack_a, stack_b);
 		}
-		// while (*stack_b != head || \
-		// (stack_len(*stack_b) == 2 && ((*stack_b)->num > (*stack_b)->next->num)))
-		// 	rb(stack_b);
 	}
 	if (*stack_a == before_harf)
 	{
@@ -78,16 +75,17 @@ void	insert_merge(t_node **stack_a, t_node **stack_b, t_node *before_harf)
 	}
 }
 
+void	right_rec(t_node **stack_a, t_node **stack_b, t_node **)
+
 void	recursive(t_node **stack_a, t_node **stack_b, t_node *before_harf)
 {
 	size_t	i;
 	size_t	len;
+	size_t	j;
 	t_node	*harf;
-	t_node	*head;
 
 	i = 1;
 	harf = (*stack_a);
-	head = *stack_a;
 	len = len_to_before_harf(*stack_a, before_harf);
 	while (i++ <= len / 2)
 		harf = harf->next;
@@ -97,19 +95,31 @@ void	recursive(t_node **stack_a, t_node **stack_b, t_node *before_harf)
 	if ((*stack_a) != harf && (*stack_a)->next != before_harf)
 	{
 		recursive(stack_a, stack_b, harf);
-		insert_merge(stack_a, stack_b, harf);
+		insert_merge(stack_a, stack_b, harf);	
 	}
-	if ((*stack_a) != harf && harf != before_harf)
+	if ((*stack_a) == before_harf && harf != before_harf)
 	{
+		j = 0;
+		while (*stack_a != len / 2)
+			ra(stack_a);
 		recursive(stack_a, stack_b, before_harf);
 		insert_merge(stack_a, stack_b, before_harf);
-		while (stack_b != NULL)
+		while (*stack_b != NULL)
 			rrb_pa_ra(stack_a, stack_b);
 	}
 	if (is_sorted(*stack_a))
 		return ;
-
-						printList(*stack_b);
+		
+	j = 0;
+	if (*stack_a == before_harf && (*stack_a)->next != before_harf)
+	{
+		while (j++ <= len)
+			rra(stack_a);
+	}
+	// insert_merge(stack_a, stack_b, harf);
+	// insert_merge(stack_a, stack_b, before_harf);
+						printList(*stack_a);
+					
 }
 
 void	sort_merge(t_node **stack_a, t_node **stack_b)

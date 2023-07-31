@@ -6,24 +6,11 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 23:07:04 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/07/26 22:23:14 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/07/31 02:18:28 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	rra_pb(t_node **stack_a, t_node **stack_b)
-{
-	rra(stack_a);
-	pb(stack_a, stack_b);
-}
-
-void	rrb_pa_ra(t_node **stack_a, t_node **stack_b)
-{
-	rrb(stack_b);
-	pa(stack_a, stack_b);
-	ra(stack_a);
-}
 
 size_t	stack_len(t_node *stack)
 {
