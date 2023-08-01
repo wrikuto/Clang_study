@@ -6,20 +6,13 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 15:46:29 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/07/31 22:46:12 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/08/01 16:56:42 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_abs(int n)
-{
-	if (n < 0)
-		return (-n);
-	return (n);
-}
-
-int	ft_average(t_node	*stack)
+static int	list_average(t_node	*stack)
 {
 	size_t	i;
 	size_t	len;
@@ -37,12 +30,12 @@ int	ft_average(t_node	*stack)
 	return (num / len);
 }
 
-int	get_center(t_node *stack, int mid)
+static int	get_center(t_node *stack, int mid)
 {
-	size_t	i;
-	size_t	len;
-	int		center_num;
-	int		dif;
+	size_t		i;
+	size_t		len;
+	int			center_num;
+	long int	dif;
 
 	i = 0;
 	len = stack_len(stack);
@@ -55,29 +48,27 @@ int	get_center(t_node *stack, int mid)
 		stack = stack->next;
 		i++;
 	}
-		printf("center: %d\n", center_num);
 	return (center_num);
 }
 
-#include <stdio.h>
-
-int	grouping(t_node **stack_a, t_node **stack_b)
+static int	grouping(t_node **stack_a, t_node **stack_b)
 {
 	int		count;
 	int		mid;
 	size_t	len;
 
-	// mid = get_center(*stack_a, (count + ((max - count) / 2)));
-	mid = get_center(*stack_a, ft_average(*stack_a));
+	mid = get_center(*stack_a, list_average(*stack_a));
 	len = stack_len(*stack_a);
 	count = 0;
-	printf("ave: %d\n", ft_average(*stack_a));
 	while ((size_t)count < len)
 	{
 		if ((*stack_a)->num <= mid)
 			pb(stack_a, stack_b);
 		else
-			ra(stack_a);
+		{
+			pb(stack_a, stack_b);
+			rb(stack_b);
+		}
 		count++;
 	}
 	while (*stack_a != NULL)

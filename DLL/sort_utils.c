@@ -6,7 +6,7 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 23:07:04 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/07/31 23:03:57 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/08/01 15:58:40 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,13 @@ int	is_sorted(t_node *stack)
 		current = current->next;
 	}
 	return (1);
+}
+
+long int	ft_abs(long int n)
+{
+	if (n < 0)
+		return (-n);
+	return (n);
 }
 
 int	get_min(t_node *stack)
@@ -75,22 +82,4 @@ int	get_max(t_node *stack)
 		current = current->next;
 	}
 	return (max);
-}
-
-void	select_sort(t_node **stack_a, t_node **stack_b)
-{
-	int	len;
-
-	len = stack_len(*stack_a);
-	if (*stack_a == NULL || is_sorted(*stack_a))
-		return ;
-	if (len == 2 && ((*stack_a)->num) > ((*stack_a)->next->num))
-		ra(stack_a);
-	else if (len == 3)
-		sort_three_elements(stack_a);
-	else if (len == 4 || len == 5)
-		sort_five_or_four(stack_a, stack_b, len);
-	else
-		sort_split_insert(stack_a, stack_b);
-	// test!!!!!!!!
 }

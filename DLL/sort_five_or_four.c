@@ -6,7 +6,7 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 20:27:56 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/07/25 21:59:33 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/08/01 16:00:14 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ static t_node	*rtn_second(t_node	*stack_a, t_node *first_pointer)
 	return (second_pointer);
 }
 
-int	dif_from_head(t_node *stack_a, t_node *first_min)
+static int	dif_from_head(t_node *stack_a, t_node *first_min)
 {
 	int		i;
 	t_node	*current;
@@ -73,7 +73,7 @@ int	dif_from_head(t_node *stack_a, t_node *first_min)
 	return (i);
 }
 
-void	second_pb(t_node **stack_a, t_node **stack_b, t_node *second_min)
+static void	second_pb(t_node **stack_a, t_node **stack_b, t_node *second_min)
 {
 	while (second_min != *stack_a)
 		ra(stack_a);
